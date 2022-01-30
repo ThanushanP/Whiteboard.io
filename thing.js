@@ -18,10 +18,9 @@ let restore_array = [];
 let index = -1;
 
 function save(){
-    let name;
-    prompt("Please Name the File: ", name);
+    let name = prompt("Please Name the File: ","");
     const link = document.createElement('a');
-    link.download = 'WhiteBoard.png';
+    link.download = name+'.png';
     link.href = canvas.toDataURL();
     link.click();
     link.delete;
@@ -90,4 +89,9 @@ function undo_last() {
         restore_array.pop();
         context.putImageData(restore_array[index], 0, 0);
     }
+}
+
+function pleaseWork(){
+    console.log("hi")
+    window.location = "thing.html";
 }
