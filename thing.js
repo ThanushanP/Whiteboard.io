@@ -95,3 +95,12 @@ function pleaseWork(){
     console.log("hi")
     window.location = "thing.html";
 }
+// -------------Server Related--------------
+
+const socket = io("http://localhost:2002");
+
+socket.on("start", (data) => {
+  console.log(data);
+
+  //   socket.emit("st")
+});
