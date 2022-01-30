@@ -63,7 +63,7 @@ h1::after {
   transform: translateY(3rem);
   align-items: center;
   justify-content: center;
-  animation: fadeInUp 2s ease calc(var(--typewriterSpeed) + 2s) forwards;
+  animation: fadeInUp 0.5s ease calc(var(--typewriterSpeed) + 2s) forwards;
 }
 
 @keyframes typewriter {
@@ -186,9 +186,20 @@ h1::after {
 
 #transferButton {
   position: absolute;
-  left: 44.5%;
+  left: 45%;
   bottom: 15%;
-  text-decoration: none;
-  color: gray;
+  background-color: gray;
   font-size: 30px;
+  border-radius: 50px;
+  width: 10%;
+  height: 10%;
+}
+
+#transferButton:hover {
+  background-color: pink;
+}
+
+#buttonLook {
+  text-decoration: none;
+  color: white;
 }
