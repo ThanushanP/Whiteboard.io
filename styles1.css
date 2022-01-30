@@ -1,0 +1,198 @@
+:root {
+  --bg-color: pink;
+  --typewriterSpeed: 3.5s;
+  --typewriterCharacters: 24;
+}
+
+#transferButton {
+  position: absolute;
+  top: 50%;
+}
+
+.front-page {
+  /* height: 2000px; */
+  width: 100%;
+}
+html {
+  overflow-y: scroll;
+}
+
+body {
+  margin: 0;
+  font-family: "Source Sans Pro", sans-serif;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  background: var(--bg-color);
+  background-color: pink;
+  min-height: 100%;
+}
+
+h1 {
+  display: flex;
+  font-size: clamp(1rem, 3vw + 1rem, 4rem);
+  position: relative;
+  top: 60%;
+  font-family: "Source Code Pro", monospace;
+  width: max-content;
+  align-items: center;
+  justify-content: center;
+}
+
+h1::before,
+h1::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+h1::before {
+  background: var(--bg-color);
+  animation: typewriter var(--typewriterSpeed)
+    steps(var(--typewriterCharacters)) 1s forwards;
+}
+
+h1::after {
+  width: 0.125em;
+  background: black;
+  animation: typewriter var(--typewriterSpeed)
+      steps(var(--typewriterCharacters)) 1s forwards,
+    blink 750ms steps(var(--typewriterCharacters)) infinite;
+}
+
+.subtitle {
+  display: flex;
+  position: relative;
+  top: 70%;
+  margin-top: 30px;
+  color: hsl(0 0% 0% / 0.7);
+  font-size: 2rem;
+  font-weight: 400;
+  opacity: 0;
+  transform: translateY(3rem);
+  align-items: center;
+  justify-content: center;
+  animation: fadeInUp 2s ease calc(var(--typewriterSpeed) + 2s) forwards;
+}
+
+@keyframes typewriter {
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes blink {
+  to {
+    background: transparent;
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ico {
+  margin: 0 auto;
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  top: 160%;
+  transform: translateY(-50%);
+  filter: url("#goo");
+}
+.ico .circle {
+  background: #55544f;
+  border-radius: 50%;
+  display: inline-block;
+  height: 120px;
+  width: 120px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: 0%;
+}
+.ico .circle.circle-top {
+  height: 33.3333333333px;
+  width: 41.6666666667px;
+  animation: blob-1-anim 3s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+  z-index: 0;
+  top: 0;
+}
+.ico .circle.circle-bottom {
+  height: 33.3333333333px;
+  width: 41.6666666667px;
+  animation: blob-2-anim 3s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+  z-index: 9;
+  bottom: 0px;
+}
+.ico .st-arrow {
+  fill: #fff;
+  animation: scrolly 3s cubic-bezier(0.77, 0, 0.175, 1) forwards infinite;
+  perspective: 9000px;
+  transform: translateZ(0);
+  transform-origin: center;
+}
+.svg {
+  z-index: 9;
+  position: relative;
+}
+@keyframes blob-1-anim {
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+  14% {
+    transform: translateX(-50%) translateY(-8px);
+  }
+  24% {
+    transform: translateX(-50%) translateY(0);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+@keyframes blob-2-anim {
+  0% {
+    transform: scale(1) translate(-50%, 10px);
+  }
+  30% {
+    transform: scale(1) translate(-50%, 10px);
+  }
+  70% {
+    transform: scale(1) translate(-50%, 10px);
+  }
+  95% {
+    transform: scale(1) translate(-50%, 26px);
+  }
+  100% {
+    transform: scale(1) translate(-50%, 10px);
+  }
+}
+@keyframes scrolly {
+  0% {
+    transform: translate3d(0, -150%, 0) rotateX(90deg) scale(0.5) skewX(3deg);
+  }
+  30% {
+    transform: translate3d(0, 0, 0) rotateX(0deg) scale(1) skewX(0deg);
+  }
+  70% {
+    transform: translate3d(0, 0, 0) rotateX(0deg) scale(1) skewX(0deg);
+  }
+  95% {
+    transform: translate3d(0, 50%, 0) rotateX(-90deg) scale(0.5) skewX(-3deg);
+  }
+  100% {
+    transform: translate3d(0, 50%, 0) rotateX(-90deg) scale(0.5) skewX(-3deg);
+  }
+}
+#drawingArea {
+  margin-top: 120%;
+}
